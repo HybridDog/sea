@@ -68,131 +68,35 @@ minetest.register_node("noairblocks:water_sourcex", {
 })
 
 
--- ABM'S
+-- ABM
 
 
 -- 6 x default to noairblocks
 
 
-minetest.register_abm({
-nodenames = {"group:sea"},
-interval = 1,
-chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local xn = {x = pos.x - 1, y = pos.y, z = pos.z}
-	local yp= {x = pos.x, y = pos.y + 1, z = pos.z}
-	local xnyp= {x = pos.x - 1, y = pos.y + 1, z = pos.z}
-	if minetest.get_node(xn).name == "default:water_source" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(xnyp).name ~= "air" then 
-				minetest.add_node(xn, {name = "noairblocks:water_sourcex"}) else
-	if minetest.get_node(xn).name == "default:water_flowing" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(xnyp).name ~= "air" then 
-				minetest.add_node(xn, {name = "noairblocks:water_flowingx"}) else
-			return
-		end
-	end
-end,
-})
+local surround_positions = {
+	{x=-1, y=0, z=0},
+	{x=1, y=0, z=0},
+	{x=0, y=0, z=-1},
+	{x=0, y=0, z=1},
+	{x=0, y=1, z=0},
+}
 
 minetest.register_abm({
-nodenames = {"group:sea"},
-interval = 1,
-chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local xp = {x = pos.x + 1, y = pos.y, z = pos.z}
-	local yp= {x = pos.x, y = pos.y + 1, z = pos.z}
-	local xpyp= {x = pos.x + 1, y = pos.y + 1, z = pos.z}
-	if minetest.get_node(xp).name == "default:water_source" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(xpyp).name ~= "air" then 
-				minetest.add_node(xp, {name = "noairblocks:water_sourcex"}) else
-	if minetest.get_node(xp).name == "default:water_flowing" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(xpyp).name ~= "air" then  
-				minetest.add_node(xp, {name = "noairblocks:water_flowingx"}) else
-			return
+	nodenames = {"group:sea"},
+	interval = 1,
+	chance = 1,
+	action = function(pos)
+		for _,i in pairs(surround_positions) do
+			local p = vector.add(pos, i)
+			if minetest.get_node({x=p.x, y=p.y+1, z=p.z}).name ~= "air" then
+				local nd = minetest.get_node(p).name
+				if nd == "default:water_source" then
+					minetest.add_node(p, {name = "noairblocks:water_sourcex"})
+				elseif nd == "default:water_flowing" then
+					minetest.add_node(p, {name = "noairblocks:water_flowingx"})
+				end
+			end
 		end
-	end
-end,
-})
-
-minetest.register_abm({
-nodenames = {"group:sea"},
-interval = 1,
-chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local zn = {x = pos.x, y = pos.y, z = pos.z - 1}
-	local yp= {x = pos.x, y = pos.y + 1, z = pos.z}
-	local znyp= {x = pos.x, y = pos.y + 1, z = pos.z - 1}
-	if minetest.get_node(zn).name == "default:water_source" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(znyp).name ~= "air" then 
-				minetest.add_node(zn, {name = "noairblocks:water_sourcex"}) else
-	if minetest.get_node(zn).name == "default:water_flowing" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(znyp).name ~= "air" then 
-				minetest.add_node(zn, {name = "noairblocks:water_flowingx"}) else
-			return
-		end
-	end
-end,
-})
-
-minetest.register_abm({
-nodenames = {"group:sea"},
-interval = 1,
-chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local zp = {x = pos.x, y = pos.y, z = pos.z + 1}
-	local yp= {x = pos.x, y = pos.y + 1, z = pos.z}
-	local zpyp= {x = pos.x, y = pos.y + 1, z = pos.z + 1}
-	if minetest.get_node(zp).name == "default:water_source" and
-			minetest.get_node(yp).name ~= "air" and
- 			minetest.get_node(zpyp).name ~= "air" then 
-				minetest.add_node(zp, {name = "noairblocks:water_sourcex"}) else
-	if minetest.get_node(zp).name == "default:water_flowing" and
-			minetest.get_node(yp).name ~= "air" and
-			minetest.get_node(zpyp).name ~= "air" then  
-				minetest.add_node(zp, {name = "noairblocks:water_flowingx"}) else
-			return
-		end
-	end
-end,
-})
-
-minetest.register_abm({
-nodenames = {"group:sea"},
-interval = 1,
-chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp= {x = pos.x, y = pos.y + 1, z = pos.z}
-	if minetest.get_node(yp).name == "default:water_source" then 
-			minetest.add_node(yp, {name = "noairblocks:water_sourcex"}) else
-	if minetest.get_node(yp).name == "default:water_flowing" then
-			minetest.add_node(yp, {name = "noairblocks:water_flowingx"}) else
-			return
-		end
-	end
-end,
-})
-
-minetest.register_abm({
-nodenames = {"group:sea"},
-interval = 1,
-chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yn = {x = pos.x, y = pos.y - 1, z = pos.z}
-	local yp= {x = pos.x, y = pos.y + 1, z = pos.z}
-	if minetest.get_node(yn).name == "default:water_source" and
-			minetest.get_node(yp).name ~= "air" then 
-			minetest.add_node(yn, {name = "noairblocks:water_sourcex"}) else
-	if minetest.get_node(yn).name == "default:water_flowing" and
-			minetest.get_node(yp).name ~= "air" then 
-			minetest.add_node(yn, {name = "noairblocks:water_flowingx"}) else
-			return
-		end
-	end
-end,
+	end,
 })
