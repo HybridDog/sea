@@ -298,46 +298,51 @@ minetest.register_abm({
 -- ALIASES
 
 
-minetest.register_alias("clams:yellowalgae","clams:collectedalgae")
-minetest.register_alias("clams:redalgae","clams:collectedalgae")
-minetest.register_alias("clams:bluealgae","clams:collectedalgae")
+for n,i in pairs({
+	["yellowalgae"] = "collectedalgae",
+	["redalgae"] = "collectedalgae",
+	["bluealgae"] = "collectedalgae",
 
-minetest.register_alias("clams:yellowshell","clams:whiteshell")
-minetest.register_alias("clams:redshell","clams:whiteshell")
-minetest.register_alias("clams:blueshell","clams:whiteshell")
+	["yellowshell"] = "whiteshell",
+	["redshell"] = "whiteshell",
+	["blueshell"] = "whiteshell",
 
-minetest.register_alias("clams:yellowseedsanddirt","clams:sandalgae")
-minetest.register_alias("clams:redseedsanddirt","clams:dirtalgae")
-minetest.register_alias("clams:blueseedsanddirt","clams:sandalgae")
+	["yellowseedsanddirt"] = "sandalgae",
+	["redseedsanddirt"] = "dirtalgae",
+	["blueseedsanddirt"] = "sandalgae",
 
-minetest.register_alias("clams:yellowseed","clams:collectedalgae")
-minetest.register_alias("clams:redseed","clams:collectedalgae")
-minetest.register_alias("clams:blueseed","clams:collectedalgae")
+	["yellowseed"] = "collectedalgae",
+	["redseed"] = "collectedalgae",
+	["blueseed"] = "collectedalgae",
 
-minetest.register_alias("clams:sanddirt","clams:sandalgaeused")
-minetest.register_alias("clams:sanddirtalgae","clams:dirtalgae")
-minetest.register_alias("clams:sanddirtused","clams:dirtalgaeused")
+	["sanddirt"] = "sandalgaeused",
+	["sanddirtalgae"] = "dirtalgae",
+	["sanddirtused"] = "dirtalgaeused",
 
-minetest.register_alias("clams:sandbalgae","clams:sandalgae")
-minetest.register_alias("clams:dirtbalgae","clams:dirtalgae")
+	["sandbalgae"] = "sandalgae",
+	["dirtbalgae"] = "dirtalgae",
 
-minetest.register_alias("clams:crushedyellow","clams:crushedwhite")
-minetest.register_alias("clams:crushedred","clams:crushedwhite")
-minetest.register_alias("clams:crushedblue","clams:crushedwhite")
-minetest.register_alias("clams:crushedblack","clams:crushedwhite")
+	["crushedyellow"] = "crushedwhite",
+	["crushedred"] = "crushedwhite",
+	["crushedblue"] = "crushedwhite",
+	["crushedblack"] = "crushedwhite",
+}) do
+	minetest.register_alias("clams:"..n, "clams:"..i)
+end
 
 minetest.register_alias("clams:emptybleacher","colormachine:colormachine")
 minetest.register_alias("clams:filledbleacher","colormachine:colormachine")
 minetest.register_alias("clams:readybleacher","colormachine:colormachine")
 
-if( minetest.get_modpath( "colormachine") ~= nil ) then
+if minetest.get_modpath( "colormachine") ~= nil then
 	minetest.register_alias("clams:emptybleacher","colormachine:colormachine")
 	minetest.register_alias("clams:filledbleacher","colormachine:colormachine")
-	minetest.register_alias("clams:readybleacher","colormachine:colormachine") else
-		minetest.register_alias("clams:emptybleacher","default:mese")
-		minetest.register_alias("clams:filledbleacher","default:mese")
-		minetest.register_alias("clams:readybleacher","default:mese")
-	return
+	minetest.register_alias("clams:readybleacher","colormachine:colormachine")
+else
+	minetest.register_alias("clams:emptybleacher","default:mese")
+	minetest.register_alias("clams:filledbleacher","default:mese")
+	minetest.register_alias("clams:readybleacher","default:mese")
+	return	--doesn't this return breaks the following aliases?
 end
 
 
