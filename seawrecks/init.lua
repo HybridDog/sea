@@ -358,569 +358,573 @@ local yp = {x = pos.x, y = pos.y + 3, z = pos.z}
 end
 })
 
+
+local function place_uboot(pos)
+	minetest.add_node(pos, {name = "default:dirt"})
+
+	pos.y = pos.y + 1
+	pos.x = pos.x - 15
+
+	for a = 1, 31 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x + 1
+
+	for a = 1, 31 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x +1
+
+	for a = 1, 27 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 3
+	pos.x = pos.x + 1
+
+	for a = 1, 27 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 1
+	pos.x = pos.x + 2
+
+	for a = 1, 21 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 5
+	pos.x = pos.x + 1
+
+	for a = 1, 21 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.y = pos.y + 1
+	pos.z = pos.z + 1
+	pos.x = pos.x - 1
+
+	for a = 1, 21 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 7
+	pos.x = pos.x + 1
+
+	for a = 1, 21 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 24
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 5
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 22
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z - 1
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 29
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z - 3
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 28
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 1
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 32
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 32
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.y = pos.y + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.x = pos.x + 32
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.z = pos.z - 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.x = pos.x - 32
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.z = pos.z - 1
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.x = pos.x + 28
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.z = pos.z + 3
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.x = pos.x - 28
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.z = pos.z + 1
+	pos.x = pos.x + 2
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.x = pos.x + 22
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.z = pos.z + 1
+	pos.x = pos.x - 2
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+
+	for a = 1, 9 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.z = pos.z - 6
+	pos.x = pos.x - 3
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.x = pos.x + 22
+	minetest.add_node(pos, {name = "default:steelblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:steelblock"})
+
+	pos.z = pos.z - 1
+	pos.x = pos.x - 2
+
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:obsidian_glass"})
+
+	for a = 1, 9 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.y = pos.y + 1
+	pos.z = pos.z + 7
+	pos.x = pos.x - 1
+	for a = 1, 21 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 7
+	pos.x = pos.x + 1
+
+	for a = 1, 21 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 24
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 5
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 22
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z - 1
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 29
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z - 3
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 28
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 1
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 32
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 32
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.y = pos.y + 1
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 28
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 28
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z - 1
+	pos.x = pos.x + 2
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x + 22
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x + 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 3
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.x = pos.x - 22
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+	pos.x = pos.x - 1
+	minetest.add_node(pos, {name = "default:copperblock"})
+
+	pos.z = pos.z + 1
+	pos.x = pos.x + 2
+	for a = 1, 21 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 5
+	pos.x = pos.x + 1
+	for a = 1, 21 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.y = pos.y + 1
+	pos.z = pos.z + 2
+	pos.x = pos.x - 4
+	for a = 1, 3 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.x = pos.x + 21
+	for a = 1, 3 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x + 1
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.x = pos.x - 21
+	for a = 1, 3 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 2
+	pos.x = pos.x + 3
+	for a = 1, 4 do
+		pos.z = pos.z - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 1
+	pos.x = pos.x + 1
+	for a = 1, 4 do
+		pos.z = pos.z + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.x = pos.x + 6
+	for a = 1, 13 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z - 3
+	pos.x = pos.x + 1
+	for a = 1, 13 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:copperblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x - 1
+	for a = 1, 13 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:bronzeblock"})
+	end
+
+	pos.z = pos.z + 1
+	pos.x = pos.x + 1
+	for a = 1, 13 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:bronzeblock"})
+	end
+
+	pos.z = pos.z - 3
+	for a = 1, 6 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.z = pos.z + 5
+	pos.x = pos.x - 1
+	for a = 1, 6 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.y = pos.y + 1
+	for a = 1, 4 do
+		pos.z = pos.z - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 5
+	pos.z = pos.z - 1
+	for a = 1, 4 do
+		pos.z = pos.z + 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	for a = 1, 4 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x + 1
+	pos.z = pos.z - 3
+	for a = 1, 4 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.y = pos.y + 1
+	pos.x = pos.x - 1
+	pos.z = pos.z - 1
+	for a = 1, 4 do
+		pos.z = pos.z + 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x + 5
+	pos.z = pos.z + 1
+	for a = 1, 4 do
+		pos.z = pos.z - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	for a = 1, 4 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	pos.z = pos.z + 3
+	for a = 1, 4 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.y = pos.y + 1
+	pos.x = pos.x - 1
+	pos.z = pos.z - 1
+	for a = 1, 2 do
+		pos.x = pos.x - 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.x = pos.x - 1
+	pos.z = pos.z - 1
+	for a = 1, 2 do
+		pos.x = pos.x + 1
+		minetest.add_node(pos, {name = "default:steelblock"})
+	end
+
+	pos.y = pos.y - 7
+	pos.x = pos.x +16
+	pos.z = pos.z +3
+	minetest.add_node(pos, {name = "seawrecks:ubootchest"})
+end
+
 minetest.register_abm({
 nodenames = {"seawrecks:uboot"},
 interval = 1,
 chance = 1,
-action = function(pos, node, active_object_count, active_object_count_wider)
-local yp = {x = pos.x, y = pos.y + 8, z = pos.z}
-	if minetest.get_node(pos).name == "seawrecks:uboot" and 
-	(minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		minetest.add_node(pos, {name = "default:dirt"})
-
-		pos.y = pos.y + 1
-		pos.x = pos.x - 15
-
-		for a = 1, 31 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x + 1
-
-		for a = 1, 31 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x +1
-
-		for a = 1, 27 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 3
-		pos.x = pos.x + 1
-
-		for a = 1, 27 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 1
-		pos.x = pos.x + 2
-
-		for a = 1, 21 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 5
-		pos.x = pos.x + 1
-
-		for a = 1, 21 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.y = pos.y + 1
-		pos.z = pos.z + 1
-		pos.x = pos.x - 1
-
-		for a = 1, 21 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 7
-		pos.x = pos.x + 1
-
-		for a = 1, 21 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 24
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 5
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 22
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z - 1
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 29
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z - 3
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 28
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 1
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 32
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 32
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.x = pos.x + 32
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.z = pos.z - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.x = pos.x - 32
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.z = pos.z - 1
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.x = pos.x + 28
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.z = pos.z + 3
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.x = pos.x - 28
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.z = pos.z + 1
-		pos.x = pos.x + 2
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.x = pos.x + 22
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.z = pos.z + 1
-		pos.x = pos.x - 2
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-
-		for a = 1, 9 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.z = pos.z - 6
-		pos.x = pos.x - 3
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.x = pos.x + 22
-		minetest.add_node(pos, {name = "default:steelblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-
-		pos.z = pos.z - 1
-		pos.x = pos.x - 2
-
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:obsidian_glass"})
-
-		for a = 1, 9 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.y = pos.y + 1
-		pos.z = pos.z + 7
-		pos.x = pos.x - 1
-		for a = 1, 21 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 7
-		pos.x = pos.x + 1
-
-		for a = 1, 21 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 24
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 5
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 22
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z - 1
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 29
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z - 3
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 28
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 1
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 32
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 32
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.y = pos.y + 1
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 28
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 28
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z - 1
-		pos.x = pos.x + 2
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x + 22
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 3
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.x = pos.x - 22
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-
-		pos.z = pos.z + 1
-		pos.x = pos.x + 2
-		for a = 1, 21 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 5
-		pos.x = pos.x + 1
-		for a = 1, 21 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.y = pos.y + 1
-		pos.z = pos.z + 2
-		pos.x = pos.x - 4
-		for a = 1, 3 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.x = pos.x + 21
-		for a = 1, 3 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x + 1
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.x = pos.x - 21
-		for a = 1, 3 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 2
-		pos.x = pos.x + 3
-		for a = 1, 4 do
-		pos.z = pos.z - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 1
-		pos.x = pos.x + 1
-		for a = 1, 4 do
-		pos.z = pos.z + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.x = pos.x + 6
-		for a = 1, 13 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z - 3
-		pos.x = pos.x + 1
-		for a = 1, 13 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:copperblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x - 1
-		for a = 1, 13 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:bronzeblock"})
-		end
-
-		pos.z = pos.z + 1
-		pos.x = pos.x + 1
-		for a = 1, 13 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:bronzeblock"})
-		end
-
-		pos.z = pos.z - 3
-		for a = 1, 6 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.z = pos.z + 5
-		pos.x = pos.x - 1
-		for a = 1, 6 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.y = pos.y + 1
-		for a = 1, 4 do
-		pos.z = pos.z - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 5
-		pos.z = pos.z - 1
-		for a = 1, 4 do
-		pos.z = pos.z + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		for a = 1, 4 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x + 1
-		pos.z = pos.z - 3
-		for a = 1, 4 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.y = pos.y + 1
-		pos.x = pos.x - 1
-		pos.z = pos.z - 1
-		for a = 1, 4 do
-		pos.z = pos.z + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x + 5
-		pos.z = pos.z + 1
-		for a = 1, 4 do
-		pos.z = pos.z - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		for a = 1, 4 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		pos.z = pos.z + 3
-		for a = 1, 4 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.y = pos.y + 1
-		pos.x = pos.x - 1
-		pos.z = pos.z - 1
-		for a = 1, 2 do
-		pos.x = pos.x - 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.x = pos.x - 1
-		pos.z = pos.z - 1
-		for a = 1, 2 do
-		pos.x = pos.x + 1
-		minetest.add_node(pos, {name = "default:steelblock"})
-		end
-
-		pos.y = pos.y - 7
-		pos.x = pos.x +16
-		pos.z = pos.z +3
-		minetest.add_node(pos, {name = "seawrecks:ubootchest"})
-
-	else
-		return
+action = function(pos, node)
+	local yp = {x = pos.x, y = pos.y + 8, z = pos.z}
+	if node.name == "seawrecks:uboot"
+	and (
+		minetest.get_node(yp).name == "default:water_source"
+		or minetest.get_node(yp).name == "noairblocks:water_sourcex"
+	) then
+		place_uboot(pos)
 	end
 end
 })
