@@ -914,17 +914,17 @@ local function place_uboot(pos)
 end
 
 minetest.register_abm({
-nodenames = {"seawrecks:uboot"},
-interval = 1,
-chance = 1,
-action = function(pos, node)
-	local yp = {x = pos.x, y = pos.y + 8, z = pos.z}
-	if node.name == "seawrecks:uboot"
-	and (
-		minetest.get_node(yp).name == "default:water_source"
-		or minetest.get_node(yp).name == "noairblocks:water_sourcex"
-	) then
-		place_uboot(pos)
+	nodenames = {"seawrecks:uboot"},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
+		local yp = {x = pos.x, y = pos.y + 8, z = pos.z}
+		if node.name == "seawrecks:uboot"
+		and (
+			minetest.get_node(yp).name == "default:water_source"
+			or minetest.get_node(yp).name == "noairblocks:water_sourcex"
+		) then
+			place_uboot(pos)
+		end
 	end
-end
 })
