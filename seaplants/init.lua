@@ -355,13 +355,12 @@ minetest.register_abm({
 nodenames = {"seaplants:seaplantsdirtkelpgreen"},
 interval = 12,
 chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:kelpgreen"}) else
-		return
+action = function(pos)
+	pos.y = pos.y+1
+	local nd = minetest.get_node(pos).name
+	if nd == "default:water_source"
+	or nd == "noairblocks:water_sourcex" then
+		minetest.add_node(pos, {name = "seaplants:kelpgreen"})
 	end
 end
 })
@@ -371,12 +370,11 @@ nodenames = {"seaplants:seaplantssandkelpgreen"},
 interval = 12,
 chance = 12,
 action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:kelpgreen"}) else
-		return
+	pos.y = pos.y+1
+	local nd = minetest.get_node(pos).name
+	if nd == "default:water_source"
+	or nd == "noairblocks:water_sourcex" then
+		minetest.add_node(pos, {name = "seaplants:kelpgreen"})
 	end
 end
 })
@@ -385,25 +383,19 @@ minetest.register_abm({
 nodenames = {"seaplants:kelpgreen"},
 interval = 6,
 chance = 3,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	local yyp = {x = pos.x, y = pos.y + 2, z = pos.z}
-	local yyyp = {x = pos.x, y = pos.y + 3, z = pos.z}
-	if minetest.get_node(pos).name == "seaplants:kelpgreen" and
-		(minetest.get_node(yp).name == "default:water_source" or
-		minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-			if (minetest.get_node(yyp).name == "default:water_source" or
-			minetest.get_node(yyp).name == "noairblocks:water_sourcex") then
-				if (minetest.get_node(yyyp).name == "default:water_source" or
-				minetest.get_node(yyyp).name == "noairblocks:water_sourcex") then
-					minetest.add_node(pos, {name = "seaplants:kelpgreenmiddle"}) 
-					pos.y = pos.y + 1
-					minetest.add_node(pos, {name = "seaplants:kelpgreen"}) 
-				else
-				return
-			end
+action = function(pos)
+	for _ = 1,3 do
+		pos.y = pos.y+1
+		local nd = minetest.get_node(pos).name
+		if nd ~= "default:water_source"
+		and nd ~= "noairblocks:water_sourcex" then
+			return
 		end
 	end
+	pos.y = pos.y-3
+	minetest.add_node(pos, {name = "seaplants:kelpgreenmiddle"}) 
+	pos.y = pos.y+1
+	minetest.add_node(pos, {name = "seaplants:kelpgreen"}) 
 end
 })
 
