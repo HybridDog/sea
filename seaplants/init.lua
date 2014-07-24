@@ -309,210 +309,116 @@ minetest.register_ore({
 	height_min     = -31000,
 })
 
-local function generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
-	if maxp.y < height_min or minp.y > height_max then
-		return
-	end
-	local y_min = math.max(minp.y, height_min)
-	local y_max = math.min(maxp.y, height_max)
-	if chunk_size >= y_max - y_min + 1 then
-		return
-	end
-	local volume = (maxp.x-minp.x+1)*(y_max-y_min+1)*(maxp.z-minp.z+1)
-	local pr = PseudoRandom(seed)
-	local num_chunks = math.floor(chunks_per_volume * volume)
-	local inverse_chance = math.floor(chunk_size*chunk_size*chunk_size / ore_per_chunk)
-	for i=1,num_chunks do
-		local y0 = pr:next(y_min, y_max-chunk_size+1)
-		if y0 >= height_min and y0 <= height_max then
-			local x0 = pr:next(minp.x, maxp.x-chunk_size+1)
-			local z0 = pr:next(minp.z, maxp.z-chunk_size+1)
-			local p0 = {x=x0, y=y0, z=z0}
-			for x1=0,chunk_size-1 do
-			for y1=0,chunk_size-1 do
-			for z1=0,chunk_size-1 do
-				if pr:next(1,inverse_chance) == 1 then
-					local x2 = x0+x1
-					local y2 = y0+y1
-					local z2 = z0+z1
-					local p2 = {x=x2, y=y2, z=z2}
-					if minetest.get_node(p2).name == wherein then
-						minetest.set_node(p2, {name=name})
-					end
-				end
-			end
-			end
-			end
-		end
-	end
-end
-
 
 -- ABM'S
 
 
-minetest.register_abm({
-nodenames = {"seaplants:seaplantsdirtkelpgreen"},
-interval = 12,
-chance = 12,
-action = function(pos)
-	pos.y = pos.y+1
-	local nd = minetest.get_node(pos).name
-	if nd == "default:water_source"
-	or nd == "noairblocks:water_sourcex" then
-		minetest.add_node(pos, {name = "seaplants:kelpgreen"})
-	end
+local function get_random(pos)
+	return PseudoRandom(math.abs(pos.x+pos.y*3+pos.z*5)+4)
 end
-})
 
 minetest.register_abm({
-nodenames = {"seaplants:seaplantssandkelpgreen"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	pos.y = pos.y+1
-	local nd = minetest.get_node(pos).name
-	if nd == "default:water_source"
-	or nd == "noairblocks:water_sourcex" then
-		minetest.add_node(pos, {name = "seaplants:kelpgreen"})
-	end
-end
-})
-
-minetest.register_abm({
-nodenames = {"seaplants:kelpgreen"},
-interval = 6,
-chance = 3,
-action = function(pos)
-	for _ = 1,3 do
+	nodenames = {"seaplants:seaplantsdirtkelpgreen", "seaplants:seaplantssandkelpgreen"},
+	interval = 12,
+	chance = 12,
+	action = function(pos)
 		pos.y = pos.y+1
 		local nd = minetest.get_node(pos).name
-		if nd ~= "default:water_source"
-		and nd ~= "noairblocks:water_sourcex" then
-			return
+		if nd == "default:water_source"
+		or nd == "noairblocks:water_sourcex" then
+			minetest.add_node(pos, {name = "seaplants:kelpgreen"})
 		end
 	end
-	pos.y = pos.y-3
-	minetest.add_node(pos, {name = "seaplants:kelpgreenmiddle"}) 
-	pos.y = pos.y+1
-	minetest.add_node(pos, {name = "seaplants:kelpgreen"}) 
-end
 })
 
 minetest.register_abm({
-nodenames = {"seaplants:seaplantsdirtkelpbrown"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:kelpbrown"}) else
-		return
-	end
-end
-})
-
-minetest.register_abm({
-nodenames = {"seaplants:seaplantssandkelpbrown"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:kelpbrown"}) else
-		return
-	end
-end
-})
-
-minetest.register_abm({
-nodenames = {"seaplants:kelpbrown"},
-interval = 6,
-chance = 3,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	local yyp = {x = pos.x, y = pos.y + 2, z = pos.z}
-	local yyyp = {x = pos.x, y = pos.y + 3, z = pos.z}
-	if minetest.get_node(pos).name == "seaplants:kelpbrown" and
-		(minetest.get_node(yp).name == "default:water_source" or
-		minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-			if (minetest.get_node(yyp).name == "default:water_source" or
-			minetest.get_node(yyp).name == "noairblocks:water_sourcex") then
-				if (minetest.get_node(yyyp).name == "default:water_source" or
-				minetest.get_node(yyyp).name == "noairblocks:water_sourcex") then
-					minetest.add_node(pos, {name = "seaplants:kelpbrownmiddle"}) 
-					pos.y = pos.y + 1
-					minetest.add_node(pos, {name = "seaplants:kelpbrown"}) 
-				else
+	nodenames = {"seaplants:kelpgreen"},
+	interval = 6,
+	chance = 3,
+	action = function(pos)
+		local ran = get_random(pos)
+		if ran:next(1,4) == 1 then
+			return
+		end
+		for _ = 1,3 do
+			pos.y = pos.y+1
+			local nd = minetest.get_node(pos).name
+			if nd ~= "default:water_source"
+			and nd ~= "noairblocks:water_sourcex" then
 				return
 			end
 		end
+		pos.y = pos.y-3
+		minetest.add_node(pos, {name = "seaplants:kelpgreenmiddle"}) 
+		pos.y = pos.y+1
+		minetest.add_node(pos, {name = "seaplants:kelpgreen"}) 
 	end
-end
 })
 
 minetest.register_abm({
-nodenames = {"seaplants:seaplantsdirtseagrassgreen"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:seagrassgreen"}) else
-		return
+	nodenames = {"seaplants:seaplantsdirtkelpbrown", "seaplants:seaplantssandkelpbrown"},
+	interval = 12,
+	chance = 12,
+	action = function(pos)
+		pos.y = pos.y+1
+		local nd = minetest.get_node(pos).name
+		if nd == "default:water_source"
+		or nd == "noairblocks:water_sourcex" then
+			minetest.add_node(pos, {name = "seaplants:kelpbrown"})
+		end
 	end
-end
 })
 
 minetest.register_abm({
-nodenames = {"seaplants:seaplantssandseagrassgreen"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:seagrassgreen"}) else
-		return
+	nodenames = {"seaplants:kelpbrown"},
+	interval = 6,
+	chance = 3,
+	action = function(pos)
+		local ran = get_random(pos)
+		if ran:next(1,4) == 1 then
+			return
+		end
+		for _ = 1,3 do
+			pos.y = pos.y+1
+			local nd = minetest.get_node(pos).name
+			if nd ~= "default:water_source"
+			and nd ~= "noairblocks:water_sourcex" then
+				return
+			end
+		end
+		pos.y = pos.y-3
+		minetest.add_node(pos, {name = "seaplants:kelpbrownmiddle"}) 
+		pos.y = pos.y+1
+		minetest.add_node(pos, {name = "seaplants:kelpbrown"}) 
 	end
-end
 })
 
 minetest.register_abm({
-nodenames = {"seaplants:seaplantsdirtseagrassred"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:seagrassred"}) else
-		return
+	nodenames = {"seaplants:seaplantsdirtseagrassgreen", "seaplants:seaplantssandseagrassgreen"},
+	interval = 12,
+	chance = 12,
+	action = function(pos)
+		pos.y = pos.y+1
+		local nd = minetest.get_node(pos).name
+		if nd == "default:water_source"
+		or nd == "noairblocks:water_sourcex" then
+			minetest.add_node(pos, {name = "seaplants:seagrassgreen"})
+		end
 	end
-end
 })
 
 minetest.register_abm({
-nodenames = {"seaplants:seaplantssandseagrassred"},
-interval = 12,
-chance = 12,
-action = function(pos, node, active_object_count, active_object_count_wider)
-	local yp = {x = pos.x, y = pos.y + 1, z = pos.z}
-	if (minetest.get_node(yp).name == "default:water_source" or
-	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
-		pos.y = pos.y + 1
-		minetest.add_node(pos, {name = "seaplants:seagrassred"}) else
-		return
+	nodenames = {"seaplants:seaplantsdirtseagrassred", "seaplants:seaplantssandseagrassred"},
+	interval = 12,
+	chance = 12,
+	action = function(pos)
+		pos.y = pos.y+1
+		local nd = minetest.get_node(pos).name
+		if nd == "default:water_source"
+		or nd == "noairblocks:water_sourcex" then
+			minetest.add_node(pos, {name = "seaplants:seagrassred"})
+		end
 	end
-end
 })
 
 
