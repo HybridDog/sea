@@ -1,71 +1,30 @@
 -- NODES
 
-minetest.register_node("noairblocks:water_flowingx", {
-	description = "Flowing Waterx",
-	inventory_image = minetest.inventorycube("default_water.png"),
-	drawtype = "flowingliquid",
-	tiles = {"default_water.png"},
-	special_tiles = {
-		{
-			image="default_water_flowing_animated.png",
-			backface_culling=false,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
-		},
-		{
-			image="default_water_flowing_animated.png",
-			backface_culling=true,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
-		},
-	},
-	alpha = 0,
-	paramtype = "light",
-	paramtype2 = "flowingliquid",
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	buildable_to = true,
-	drop = "",
-	drowning = 1,
-	liquidtype = "flowing",
-	liquid_alternative_flowing = "noairblocks:water_flowingx",
-	liquid_alternative_source = "noairblocks:water_sourcex",
-	liquid_viscosity = WATER_VISC,
-	freezemelt = "default:snow",
-	post_effect_color = {a=64, r=100, g=100, b=200},
-	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1, freezes=1, melt_around=1},
-})
+local function copytable(t)
+	local t2 = {}
+	for n,i in pairs(t) do
+		t2[n] = i
+	end
+	return t2
+end
 
-minetest.register_node("noairblocks:water_sourcex", {
-	description = "Water Sourcex",
-	inventory_image = minetest.inventorycube("default_water.png"),
-	drawtype = "liquid",
-	tiles = {
-		{name="default_water_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
-	},
-	special_tiles = {
-		-- New-style water source material (mostly unused)
-		{
-			name="default_water_source_animated.png",
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
-			backface_culling = false,
-		}
-	},
-	alpha = 0,
-	paramtype = "light",
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	buildable_to = true,
-	drop = "",
-	drowning = 1,
-	liquidtype = "source",
-	liquid_alternative_flowing = "noairblocks:water_flowingx",
-	liquid_alternative_source = "noairblocks:water_sourcex",
-	liquid_viscosity = WATER_VISC,
-	freezemelt = "default:ice",
-	post_effect_color = {a=64, r=100, g=100, b=200},
-	groups = {water=3, liquid=3, puts_out_fire=1, freezes=1},
-})
+local water = copytable(minetest.registered_nodes["default:water_source"])
+water.description = water.description.."x"
+water.alpha = 0
+water.liquid_alternative_source = "noairblocks:water_sourcex"
+water.liquid_alternative_flowing = "noairblocks:water_flowingx"
+water.groups = copytable(water.groups)
+water.groups.not_in_creative_inventory = 1
+
+minetest.register_node(water.liquid_alternative_source, water)
+
+local water = copytable(minetest.registered_nodes["default:water_flowing"])
+water.description = water.description.."x"
+water.alpha = 0
+water.liquid_alternative_source = "noairblocks:water_sourcex"
+water.liquid_alternative_flowing = "noairblocks:water_flowingx"
+
+minetest.register_node(water.liquid_alternative_flowing, water)
 
 
 -- ABM
@@ -84,7 +43,8 @@ local surround_positions = {
 
 minetest.register_abm({
 	nodenames = {"group:sea"},
-	interval = 1,
+	neighbors = {"group:water"},
+	interval = 3,
 	chance = 1,
 	action = function(pos)
 		for _,i in pairs(surround_positions) do
@@ -97,6 +57,18 @@ minetest.register_abm({
 					minetest.add_node(p, {name = "noairblocks:water_flowingx"})
 				end
 			end
+		end
+	end,
+})
+
+minetest.register_abm({
+	nodenames = {"noairblocks:water_sourcex", "noairblocks:water_flowingx"},
+	neighbors = {"air"},
+	interval = 5,
+	chance = 1,
+	action = function(pos)
+		if minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name == "air" then
+			minetest.remove_node(pos)
 		end
 	end,
 })
