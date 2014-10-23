@@ -214,7 +214,7 @@ minetest.register_abm({
 				return
 			end
 		end
-		pos = vector.add(pos, {x=math.random()/2, y=1, z=math.random()/2})
+		pos = vector.add(pos, {x=math.random()-0.5, y=1, z=math.random()-0.5})
 		minetest.add_entity(pos, "clams:whiteshell")
 	end,
 })
