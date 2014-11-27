@@ -63,6 +63,12 @@ minetest.register_node("clams:dirtalgaeused", {
 -- The registration of the entities' code is copied from celeron55's mob (the DM's fireball)
 
 
+local phasearmor = {
+	[0]={fleshy=0},
+	[1]={fleshy=30},
+	[2]={fleshy=70}
+}
+
 minetest.register_entity("clams:whiteshell", {
 	description="White shell",
 	hp_max = 15,
@@ -93,11 +99,6 @@ minetest.register_entity("clams:whiteshell", {
 				self.phase = 0
 			end
 			self.object:setsprite({x=0, y=self.phase})
-			phasearmor = {
-				[0]={fleshy=0},
-				[1]={fleshy=30},
-				[2]={fleshy=70}
-			}
 			self.object:set_armor_groups(phasearmor[self.phase])
 		end
 	end,
