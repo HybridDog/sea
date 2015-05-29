@@ -620,7 +620,7 @@ action = function(pos, node, active_object_count, active_object_count_wider)
 	minetest.get_node(yp).name == "noairblocks:water_sourcex") and
 	(minetest.get_node(yyp).name == "default:water_source" or
 	minetest.get_node(yyp).name == "noairblocks:water_sourcex")) then
-		local objs = minetest.env:get_objects_inside_radius(pos, 2)
+		local objs = minetest.get_objects_inside_radius(pos, 2)
 		for k, obj in pairs(objs) do
 			obj:set_hp(obj:get_hp()+ 1)
 		end
