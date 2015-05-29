@@ -35,7 +35,7 @@ minetest.register_node("clams:dirtalgae", {
 			}
 		}
 	},
-	sounds = default.node_sound_dirt_defaults,	
+	sounds = default.node_sound_dirt_defaults,
 })
 
 minetest.register_node("clams:sandalgaeused", {

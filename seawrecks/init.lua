@@ -187,7 +187,7 @@ interval = 1,
 chance = 1,
 action = function(pos, node, active_object_count, active_object_count_wider)
 local yp = {x = pos.x, y = pos.y + 3, z = pos.z}
-	if minetest.get_node(pos).name == "seawrecks:woodship" and 
+	if minetest.get_node(pos).name == "seawrecks:woodship" and
 	(minetest.get_node(yp).name == "default:water_source" or
 	minetest.get_node(yp).name == "noairblocks:water_sourcex") then
 		minetest.add_node(pos, {name = "default:sand"})
@@ -282,7 +282,7 @@ local yp = {x = pos.x, y = pos.y + 3, z = pos.z}
 		end
 
 		pos.z = pos.z - 1
-		pos.x = pos.x + 1	
+		pos.x = pos.x + 1
 		minetest.add_node(pos, {name = "default:wood"})
 
 		pos.z = pos.z - 1

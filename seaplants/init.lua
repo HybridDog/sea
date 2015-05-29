@@ -349,9 +349,9 @@ minetest.register_abm({
 			end
 		end
 		pos.y = pos.y-3
-		minetest.add_node(pos, {name = "seaplants:kelpgreenmiddle"}) 
+		minetest.add_node(pos, {name = "seaplants:kelpgreenmiddle"})
 		pos.y = pos.y+1
-		minetest.add_node(pos, {name = "seaplants:kelpgreen"}) 
+		minetest.add_node(pos, {name = "seaplants:kelpgreen"})
 	end
 })
 
@@ -387,9 +387,9 @@ minetest.register_abm({
 			end
 		end
 		pos.y = pos.y-3
-		minetest.add_node(pos, {name = "seaplants:kelpbrownmiddle"}) 
+		minetest.add_node(pos, {name = "seaplants:kelpbrownmiddle"})
 		pos.y = pos.y+1
-		minetest.add_node(pos, {name = "seaplants:kelpbrown"}) 
+		minetest.add_node(pos, {name = "seaplants:kelpbrown"})
 	end
 })
 
